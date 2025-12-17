@@ -1,0 +1,9 @@
+{
+  "name": "atomic-brokerless-discovery",
+  "version-string": "0.1.0",
+  "description": "C++26 library for atomic brokerless discovery and shared memory ring buffers with eventfd notifications",
+  "dependencies": [
+    "catch2"
+  ],
+  "builtin-baseline": "2023-12-05"
+}
