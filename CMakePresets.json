@@ -1,0 +1,57 @@
+{
+  "version": 10,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 26,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "default",
+      "displayName": "Default build",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/default",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_STANDARD": "26",
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+      }
+    },
+    {
+      "name": "clang22-ubuntu20",
+      "displayName": "Clang 22 (Ubuntu 20.04)",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchains/clang22-ubuntu20.cmake"
+      }
+    },
+    {
+      "name": "clang22-ubuntu24",
+      "displayName": "Clang 22 (Ubuntu 24.04)",
+      "inherits": "default",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "${sourceDir}/cmake/toolchains/clang22-ubuntu24.cmake"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "build",
+      "configurePreset": "default"
+    },
+    {
+      "name": "build-clang22-ubuntu20",
+      "configurePreset": "clang22-ubuntu20"
+    },
+    {
+      "name": "build-clang22-ubuntu24",
+      "configurePreset": "clang22-ubuntu24"
+    }
+  ],
+  "testPresets": [
+    {
+      "name": "test",
+      "configurePreset": "default"
+    }
+  ]
+}
