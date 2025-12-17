@@ -1,0 +1,16 @@
+[project]
+name = "atomic-brokerless-discovery"
+version = "0.1.0"
+description = "Atomic brokerless discovery library and shared memory ring buffers."
+requires-python = ">=3.12"
+
+[tool.pixi.environment]
+dependencies = [
+  "python>=3.12",
+  "clang=22",
+  "cmake>=3.26",
+  "ninja",
+]
+
+[tool.pixi.tasks]
+setup = "echo Setup done"
